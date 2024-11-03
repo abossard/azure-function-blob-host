@@ -40,7 +40,8 @@ app.http('getBlobFunction', {
                     status: 200,
                     body: downloaded,
                     headers: {
-                        'Content-Type': blobProperties.contentType || 'application/octet-stream'
+                        'Content-Type': blobProperties.contentType || 'application/octet-stream',
+                        'Content-Disposition': `attachment; filename="${encodeURIComponent(blobPath)}"`
                     }
                 };
             }
